@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 gretlの準備 | gretl入門</title>
+  <meta name="description" content="2 gretlの準備 | gretl入門" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 gretlの準備 | gretl入門" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 gretlの準備 | gretl入門" />
+  
+  
+  
+
+<meta name="author" content="村澤 康友" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="はじめに.html"/>
+<link rel="next" href="分析の準備.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">gretl入門</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="はじめに.html"><a href="はじめに.html"><i class="fa fa-check"></i><b>1</b> はじめに</a></li>
+<li class="chapter" data-level="2" data-path="gretlの準備.html"><a href="gretlの準備.html"><i class="fa fa-check"></i><b>2</b> gretlの準備</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="gretlの準備.html"><a href="gretlの準備.html#gretlの入手"><i class="fa fa-check"></i><b>2.1</b> gretlの入手</a></li>
+<li class="chapter" data-level="2.2" data-path="gretlの準備.html"><a href="gretlの準備.html#インストール"><i class="fa fa-check"></i><b>2.2</b> インストール</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="gretlの準備.html"><a href="gretlの準備.html#自分のpcにインストールする場合"><i class="fa fa-check"></i><b>2.2.1</b> 自分のPCにインストールする場合</a></li>
+<li class="chapter" data-level="2.2.2" data-path="gretlの準備.html"><a href="gretlの準備.html#インストールせずに単体で使う場合"><i class="fa fa-check"></i><b>2.2.2</b> インストールせずに単体で使う場合</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="gretlの準備.html"><a href="gretlの準備.html#起動"><i class="fa fa-check"></i><b>2.3</b> 起動</a></li>
+<li class="chapter" data-level="2.4" data-path="gretlの準備.html"><a href="gretlの準備.html#言語の設定"><i class="fa fa-check"></i><b>2.4</b> 言語の設定</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="分析の準備.html"><a href="分析の準備.html"><i class="fa fa-check"></i><b>3</b> 分析の準備</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="分析の準備.html"><a href="分析の準備.html#データの準備"><i class="fa fa-check"></i><b>3.1</b> データの準備</a></li>
+<li class="chapter" data-level="3.2" data-path="分析の準備.html"><a href="分析の準備.html#データの追加"><i class="fa fa-check"></i><b>3.2</b> データの追加</a></li>
+<li class="chapter" data-level="3.3" data-path="分析の準備.html"><a href="分析の準備.html#変数の作成"><i class="fa fa-check"></i><b>3.3</b> 変数の作成</a></li>
+<li class="chapter" data-level="3.4" data-path="分析の準備.html"><a href="分析の準備.html#スクリプトの実行"><i class="fa fa-check"></i><b>3.4</b> スクリプトの実行</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="基本統計分析.html"><a href="基本統計分析.html"><i class="fa fa-check"></i><b>4</b> 基本統計分析</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="基本統計分析.html"><a href="基本統計分析.html#変量データ"><i class="fa fa-check"></i><b>4.1</b> 1変量データ</a></li>
+<li class="chapter" data-level="4.2" data-path="基本統計分析.html"><a href="基本統計分析.html#多変量データ"><i class="fa fa-check"></i><b>4.2</b> 多変量データ</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html"><i class="fa fa-check"></i><b>5</b> 1変量線形回帰モデルの推定</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html#古典的線形回帰モデル"><i class="fa fa-check"></i><b>5.1</b> 古典的線形回帰モデル</a></li>
+<li class="chapter" data-level="5.2" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html#一般化線形回帰モデル"><i class="fa fa-check"></i><b>5.2</b> 一般化線形回帰モデル</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html#ols"><i class="fa fa-check"></i><b>5.2.1</b> OLS</a></li>
+<li class="chapter" data-level="5.2.2" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html#gls横断面データ"><i class="fa fa-check"></i><b>5.2.2</b> GLS（横断面データ）</a></li>
+<li class="chapter" data-level="5.2.3" data-path="変量線形回帰モデルの推定.html"><a href="変量線形回帰モデルの推定.html#gls時系列データ"><i class="fa fa-check"></i><b>5.2.3</b> GLS（時系列データ）</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="多変量線形モデルの推定.html"><a href="多変量線形モデルの推定.html"><i class="fa fa-check"></i><b>6</b> 多変量線形モデルの推定</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="多変量線形モデルの推定.html"><a href="多変量線形モデルの推定.html#多変量線形回帰モデル"><i class="fa fa-check"></i><b>6.1</b> 多変量線形回帰モデル</a></li>
+<li class="chapter" data-level="6.2" data-path="多変量線形モデルの推定.html"><a href="多変量線形モデルの推定.html#線形同時方程式モデル"><i class="fa fa-check"></i><b>6.2</b> 線形同時方程式モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="制限従属変数モデルの推定.html"><a href="制限従属変数モデルの推定.html"><i class="fa fa-check"></i><b>7</b> 制限従属変数モデルの推定</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="制限従属変数モデルの推定.html"><a href="制限従属変数モデルの推定.html#値プロビットモデル"><i class="fa fa-check"></i><b>7.1</b> 2値プロビット・モデル</a></li>
+<li class="chapter" data-level="7.2" data-path="制限従属変数モデルの推定.html"><a href="制限従属変数モデルの推定.html#トービットモデル"><i class="fa fa-check"></i><b>7.2</b> トービット・モデル</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="パネルデータによる推定.html"><a href="パネルデータによる推定.html"><i class="fa fa-check"></i><b>8</b> パネル・データによる推定</a></li>
+<li class="chapter" data-level="9" data-path="時系列モデルの推定.html"><a href="時系列モデルの推定.html"><i class="fa fa-check"></i><b>9</b> 時系列モデルの推定</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="時系列モデルの推定.html"><a href="時系列モデルの推定.html#arimaモデル"><i class="fa fa-check"></i><b>9.1</b> ARIMAモデル</a></li>
+<li class="chapter" data-level="9.2" data-path="時系列モデルの推定.html"><a href="時系列モデルの推定.html#varモデル"><i class="fa fa-check"></i><b>9.2</b> VARモデル</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">gretl入門</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="gretlの準備" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> gretlの準備<a href="gretlの準備.html#gretlの準備" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="gretlの入手" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> gretlの入手<a href="gretlの準備.html#gretlの入手" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>大学の情報システムにはgretlをインストールしてあるが，必ずしも最新版ではない．下記のURLから最新版（Windows・Mac・Linux版がある）をダウンロードし，自分のPCにインストールするとよい．</p>
+<p><a href="http://gretl.sourceforge.net/" class="uri">http://gretl.sourceforge.net/</a></p>
+<p>Windows版は「gretl for Windows」のページにある．</p>
+</div>
+<div id="インストール" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> インストール<a href="gretlの準備.html#インストール" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="自分のpcにインストールする場合" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> 自分のPCにインストールする場合<a href="gretlの準備.html#自分のpcにインストールする場合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>self-installer（32ビットか64ビット）のlatest releaseをクリック．後は「OK」をクリックしていけばよい．</p>
+</div>
+<div id="インストールせずに単体で使う場合" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> インストールせずに単体で使う場合<a href="gretlの準備.html#インストールせずに単体で使う場合" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>zip archiveのlatest releaseをクリックし，自分のフォルダやUSBメモリに保存して解凍（右クリックして「すべて展開」）．</p>
+</div>
+</div>
+<div id="起動" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> 起動<a href="gretlの準備.html#起動" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>デスクトップまたはインストールした場所のgretlのアイコン（gretl.exe）をクリック．</p>
+</div>
+<div id="言語の設定" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> 言語の設定<a href="gretlの準備.html#言語の設定" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>gretlのメニューは日本語化されている．出力が文字化けする場合は日本語フォントを以下の手順で設定する．</p>
+<ol style="list-style-type: decimal">
+<li>メニューの「ツール」→「設定」→「等幅フォント」を選択．</li>
+<li>「フォント名」で「MSゴシック」を選択．</li>
+<li>「OK」をクリックし，gretlを一旦閉じて再起動．</li>
+</ol>
+<p>ただし日本語フォントだとエラーが出やすくなる．その場合は以下の手順で英語版に戻す．</p>
+<ol style="list-style-type: decimal">
+<li>メニューの「ツール」→「設定」→「一般」を選択．</li>
+<li>「言語設定」で「English」を選択し，「適用」をクリック．</li>
+<li>「OK」をクリックし，gretlを一旦閉じて再起動．</li>
+</ol>
+<p>Windows版で半角英数字の入力に不具合が発生する場合はgretlを再起動する．不具合が解消しない場合はテキストエディタで入力した文字をコピペする．</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="はじめに.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="分析の準備.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": false,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
