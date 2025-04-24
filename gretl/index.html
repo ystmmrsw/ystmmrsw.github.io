@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 多変量線形モデルの推定 | gretl入門</title>
-  <meta name="description" content="6 多変量線形モデルの推定 | gretl入門" />
+  <title>gretl入門</title>
+  <meta name="description" content="gretl入門" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 多変量線形モデルの推定 | gretl入門" />
+  <meta property="og:title" content="gretl入門" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 多変量線形モデルの推定 | gretl入門" />
+  <meta name="twitter:title" content="gretl入門" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="変量線形回帰モデルの推定.html"/>
-<link rel="next" href="制限従属変数モデルの推定.html"/>
+
+<link rel="next" href="gretlの準備.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -145,43 +145,22 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="多変量線形モデルの推定" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> 多変量線形モデルの推定<a href="多変量線形モデルの推定.html#多変量線形モデルの推定" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="多変量線形回帰モデル" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> 多変量線形回帰モデル<a href="多変量線形モデルの推定.html#多変量線形回帰モデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>SURモデルのGLS推定は以下の手順で実行する．</p>
-<ol style="list-style-type: decimal">
-<li>メニューから「モデル」→「同時方程式（連立方程式）」を選択．</li>
-<li>以下のようにSURモデルを記述する．</li>
-</ol>
-<pre><code>equation y_1 const x_1 ... x_k
-...
-equation y_m const x_1 ... x_k</code></pre>
-<p>ただし<span class="math inline">\(y_1,\dots,y_m\)</span>は被説明変数，<span class="math inline">\(x_1,\dots,x_k\)</span>は説明変数．</p>
-<ol start="3" style="list-style-type: decimal">
-<li>「推定量」で「見かけ上無相関な回帰（sur）」を選択．</li>
-<li>「OK」をクリック．</li>
-</ol>
+<div id="header">
+<h1 class="title">gretl入門</h1>
+<p class="author"><em>村澤 康友</em></p>
+<p class="date"><em>2025-04-13改訂</em></p>
 </div>
-<div id="線形同時方程式モデル" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> 線形同時方程式モデル<a href="多変量線形モデルの推定.html#線形同時方程式モデル" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>線形同時方程式モデルの各式の2SLS推定は以下の手順で実行する．</p>
-<ol style="list-style-type: decimal">
-<li>メニューから「モデル」→「操作変数法」→「2段階最小二乗法」を選択．</li>
-<li>「従属変数」を1つ選択．</li>
-<li>「説明変数（回帰変数）」を選択．</li>
-<li>「操作変数」を選択．</li>
-<li>「OK」をクリック．</li>
-</ol>
-</div>
+<div id="はじめに" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">1</span> はじめに<a href="index.html#はじめに" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="変量線形回帰モデルの推定.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="制限従属変数モデルの推定.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="gretlの準備.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
