@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="村澤 康友">
-<meta name="dcterms.date" content="2025-09-07">
 
-<title>gretl入門</title>
+<title>2&nbsp; gretlの準備 – gretl入門</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
+<link href="./prepare.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./setup.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,13 +128,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span></a>
   </div>
 </li>
@@ -191,7 +190,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a></li>
+  <li><a href="#gretlの入手" id="toc-gretlの入手" class="nav-link active" data-scroll-target="#gretlの入手"><span class="header-section-number">2.1</span> gretlの入手</a></li>
+  <li><a href="#インストール" id="toc-インストール" class="nav-link" data-scroll-target="#インストール"><span class="header-section-number">2.2</span> インストール</a>
+  <ul class="collapse">
+  <li><a href="#自分のpcにインストールする場合" id="toc-自分のpcにインストールする場合" class="nav-link" data-scroll-target="#自分のpcにインストールする場合"><span class="header-section-number">2.2.1</span> 自分のPCにインストールする場合</a></li>
+  <li><a href="#インストールせずに単体で使う場合" id="toc-インストールせずに単体で使う場合" class="nav-link" data-scroll-target="#インストールせずに単体で使う場合"><span class="header-section-number">2.2.2</span> インストールせずに単体で使う場合</a></li>
+  </ul></li>
+  <li><a href="#起動" id="toc-起動" class="nav-link" data-scroll-target="#起動"><span class="header-section-number">2.3</span> 起動</a></li>
+  <li><a href="#言語の設定" id="toc-言語の設定" class="nav-link" data-scroll-target="#言語の設定"><span class="header-section-number">2.4</span> 言語の設定</a></li>
   </ul>
 </nav>
     </div>
@@ -200,26 +206,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">gretl入門</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>村澤 康友 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -229,9 +223,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="はじめに" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
-<p>統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．</p>
+<section id="gretlの入手" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="gretlの入手"><span class="header-section-number">2.1</span> gretlの入手</h2>
+<p>大学の情報システムにはgretlをインストールしてあるが，必ずしも最新版ではない．下記のURLから最新版（Windows・Mac・Linux版がある）をダウンロードし，自分のPCにインストールするとよい．</p>
+<p><a href="http://gretl.sourceforge.net/" class="uri">http://gretl.sourceforge.net/</a></p>
+<p>Windows版は「gretl for Windows」のページにある．</p>
+</section>
+<section id="インストール" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="インストール"><span class="header-section-number">2.2</span> インストール</h2>
+<section id="自分のpcにインストールする場合" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="自分のpcにインストールする場合"><span class="header-section-number">2.2.1</span> 自分のPCにインストールする場合</h3>
+<p>self-installer（32ビットか64ビット）のlatest releaseをクリック．後は「OK」をクリックしていけばよい．</p>
+</section>
+<section id="インストールせずに単体で使う場合" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="インストールせずに単体で使う場合"><span class="header-section-number">2.2.2</span> インストールせずに単体で使う場合</h3>
+<p>zip archiveのlatest releaseをクリックし，自分のフォルダやUSBメモリに保存して解凍（右クリックして「すべて展開」）．</p>
+</section>
+</section>
+<section id="起動" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="起動"><span class="header-section-number">2.3</span> 起動</h2>
+<p>デスクトップまたはインストールした場所のgretlのアイコン（gretl.exe）をクリック．</p>
+</section>
+<section id="言語の設定" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="言語の設定"><span class="header-section-number">2.4</span> 言語の設定</h2>
+<p>gretlのメニューは日本語化されている．出力が文字化けする場合は日本語フォントを以下の手順で設定する．</p>
+<ol type="1">
+<li>メニューの「ツール」→「設定」→「等幅フォント」を選択．</li>
+<li>「フォント名」で「MSゴシック」を選択．</li>
+<li>「OK」をクリックし，gretlを一旦閉じて再起動．</li>
+</ol>
+<p>ただし日本語フォントだとエラーが出やすくなる．その場合は以下の手順で英語版に戻す．</p>
+<ol type="1">
+<li>メニューの「ツール」→「設定」→「一般」を選択．</li>
+<li>「言語設定」で「English」を選択し，「適用」をクリック．</li>
+<li>「OK」をクリックし，gretlを一旦閉じて再起動．</li>
+</ol>
+<p>Windows版で半角英数字の入力に不具合が発生する場合はgretlを再起動する．不具合が解消しない場合はテキストエディタで入力した文字をコピペする．</p>
 
 
 </section>
@@ -638,10 +665,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="はじめに">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="gretlの準備">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./prepare.html" class="pagination-link" aria-label="分析の準備">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">分析の準備</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
