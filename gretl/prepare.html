@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="村澤 康友">
-<meta name="dcterms.date" content="2025-09-07">
 
-<title>gretl入門</title>
+<title>3&nbsp; 分析の準備 – gretl入門</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
+<link href="./stat.html" rel="next">
+<link href="./setup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prepare.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">分析の準備</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
@@ -141,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./prepare.html" class="sidebar-item-text sidebar-link">
+  <a href="./prepare.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">分析の準備</span></span></a>
   </div>
 </li>
@@ -191,7 +190,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a></li>
+  <li><a href="#データの準備" id="toc-データの準備" class="nav-link active" data-scroll-target="#データの準備"><span class="header-section-number">3.1</span> データの準備</a></li>
+  <li><a href="#データの追加" id="toc-データの追加" class="nav-link" data-scroll-target="#データの追加"><span class="header-section-number">3.2</span> データの追加</a></li>
+  <li><a href="#変数の作成" id="toc-変数の作成" class="nav-link" data-scroll-target="#変数の作成"><span class="header-section-number">3.3</span> 変数の作成</a></li>
+  <li><a href="#スクリプトの実行" id="toc-スクリプトの実行" class="nav-link" data-scroll-target="#スクリプトの実行"><span class="header-section-number">3.4</span> スクリプトの実行</a></li>
   </ul>
 </nav>
     </div>
@@ -200,26 +202,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">gretl入門</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">分析の準備</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>村澤 康友 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -229,9 +219,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="はじめに" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
-<p>統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．</p>
+<section id="データの準備" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="データの準備"><span class="header-section-number">3.1</span> データの準備</h2>
+<p>メニューの「ファイル」→「データを開く」→「サンプル・ファイル」以下にサンプル・データが用意されている．自分で用意したデータを分析する場合は，以下の要領でデータをgretlに読み込んで保存する．</p>
+<ol type="1">
+<li>データの整理には表計算ソフト（Excel等）が便利である．各行が個体または観測時点，各列が変数を表す行列にデータを整理し（1行目は変数名），適当なファイル名（半角英数字）を付けて保存する．作業フォルダを用意し，そこに保存するとよい．</li>
+<li>gretlのメニューから「ファイル」→「データを開く」→「ユーザー・ファイル」を選択し，データ形式を選んでデータ・ファイルを開く．幾つかの質問に答えるとデータが読み込まれる．</li>
+<li>データはgretlのgdt形式で保存しておくのが便利である．メニューから「ファイル」→「データを保存」を選択して保存する．gdt形式のデータを開くには，メニューから「ファイル」→「データを開く」→「ユーザー・ファイル」を選択する．</li>
+</ol>
+</section>
+<section id="データの追加" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="データの追加"><span class="header-section-number">3.2</span> データの追加</h2>
+<p>複数のファイルに分割されたデータは，以下の手順で1つのまとめる．</p>
+<ol type="1">
+<li>1つ目のデータ・ファイルを前項の手順で開く．</li>
+<li>gretlのメニューから「ファイル」→「データを追加する」を選択し，データ形式を選んで2つ目のデータ・ファイルを開く．通常は「単純な追加」でデータが読み込まれる．</li>
+<li>3つ目以降も同様．</li>
+</ol>
+</section>
+<section id="変数の作成" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="変数の作成"><span class="header-section-number">3.3</span> 変数の作成</h2>
+<p>gretlでデータを加工する方法は2つある．</p>
+<ol type="1">
+<li>メニューの「追加」以下で簡単な変換（対数・2乗・標準化）や変数の作成（疑似乱数・各種ダミー）ができる．ただしダミー変数は離散データからしか作れないので，「変数」→「属性を編集」で「この変数を離散変数として扱う」にチェックを入れておく．時系列データの変換（ラグ・階差・指数化など）やタイム・トレンドの作成は「追加」→「Time」以下で行う．</li>
+<li>複雑な変換はメニューから「追加」→「新規変数の定義」を選択し，新しい変数を式で定義する．</li>
+</ol>
+<p>また「変数」→「欠損値コードを設定」で欠損値コードを入力すると欠損値が空欄となる．</p>
+</section>
+<section id="スクリプトの実行" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="スクリプトの実行"><span class="header-section-number">3.4</span> スクリプトの実行</h2>
+<p>マウスで操作できるのがgretlの長所だが，単純なマウス操作の繰り返しは面倒である．マウス操作をスクリプト・ファイルとして保存すれば，簡単に再実行できる．</p>
+<ol type="1">
+<li>「ツール」→「コマンド・ログ」でマウス操作の履歴が確認できる．右クリックして「スクリプト・エディタで開く」を選択し，「保存」のアイコンをクリックしてgretlスクリプトとして保存する（ファイル名に拡張子.inpを付ける）．</li>
+<li>「ファイル」→「スクリプト・ファイル」→「ユーザーファイル」で保存したスクリプトを開き，「実行」のアイコンをクリックして実行する．</li>
+</ol>
 
 
 </section>
@@ -638,10 +659,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./setup.html" class="pagination-link" aria-label="gretlの準備">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="gretlの準備">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./stat.html" class="pagination-link" aria-label="基本統計分析">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">基本統計分析</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="村澤 康友">
-<meta name="dcterms.date" content="2025-09-07">
 
-<title>gretl入門</title>
+<title>5&nbsp; 1変量線形回帰モデルの推定 – gretl入門</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
+<link href="./multireg.html" rel="next">
+<link href="./stat.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./unireg.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1変量線形回帰モデルの推定</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
@@ -153,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./unireg.html" class="sidebar-item-text sidebar-link">
+  <a href="./unireg.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1変量線形回帰モデルの推定</span></span></a>
   </div>
 </li>
@@ -191,7 +190,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a></li>
+  <li><a href="#古典的線形回帰モデル" id="toc-古典的線形回帰モデル" class="nav-link active" data-scroll-target="#古典的線形回帰モデル"><span class="header-section-number">5.1</span> 古典的線形回帰モデル</a></li>
+  <li><a href="#一般化線形回帰モデル" id="toc-一般化線形回帰モデル" class="nav-link" data-scroll-target="#一般化線形回帰モデル"><span class="header-section-number">5.2</span> 一般化線形回帰モデル</a>
+  <ul class="collapse">
+  <li><a href="#ols" id="toc-ols" class="nav-link" data-scroll-target="#ols"><span class="header-section-number">5.2.1</span> OLS</a></li>
+  <li><a href="#gls横断面データ" id="toc-gls横断面データ" class="nav-link" data-scroll-target="#gls横断面データ"><span class="header-section-number">5.2.2</span> GLS（横断面データ）</a></li>
+  <li><a href="#gls時系列データ" id="toc-gls時系列データ" class="nav-link" data-scroll-target="#gls時系列データ"><span class="header-section-number">5.2.3</span> GLS（時系列データ）</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -200,26 +205,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">gretl入門</h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1変量線形回帰モデルの推定</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>村澤 康友 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -229,11 +222,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="はじめに" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
-<p>統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．</p>
+<section id="古典的線形回帰モデル" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="古典的線形回帰モデル"><span class="header-section-number">5.1</span> 古典的線形回帰モデル</h2>
+<p>古典的線形回帰モデルのOLS推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「通常の最小二乗法」を選択．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「OK」をクリック．</li>
+</ol>
+<p>結果の画面でメニューから追加的な分析やグラフの表示ができる．</p>
+<ol type="1">
+<li>「検定」→「不均一分散」で不均一分散の存在を検定できる（Whiteの検定・Breusch–PaganのLM検定）．</li>
+<li>「検定」→「自己相関」で系列相関の存在を検定できる（Breusch–GodfreyのLM検定）．</li>
+<li>「グラフ」→「理論値・実績値プロット」→「対」で回帰直線が図示される．</li>
+<li>「分析」→「係数の信頼区間」で回帰係数の95％信頼区間が求まる．</li>
+</ol>
+</section>
+<section id="一般化線形回帰モデル" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="一般化線形回帰モデル"><span class="header-section-number">5.2</span> 一般化線形回帰モデル</h2>
+<section id="ols" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="ols"><span class="header-section-number">5.2.1</span> OLS</h3>
+<p>一般化線形回帰モデルのOLS推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「通常の最小二乗法」を選択．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「頑健標準誤差を使用する」をチェック．</li>
+<li>「OK」をクリック．</li>
+</ol>
+<p>これで頑健（robust）な標準誤差が得られる．</p>
+</section>
+<section id="gls横断面データ" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="gls横断面データ"><span class="header-section-number">5.2.2</span> GLS（横断面データ）</h3>
+<p>条件つき不均一分散をもつ線形回帰モデルのGLS推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「その他の線形モデル」→「不均一分散を修正した推定」を選択．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「OK」をクリック．</li>
+</ol>
+</section>
+<section id="gls時系列データ" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="gls時系列データ"><span class="header-section-number">5.2.3</span> GLS（時系列データ）</h3>
+<p>系列相関をもつ線形回帰モデルのGLS推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「Univariate time series」→「自己回帰（AR）モデル（GLS）」→「1階の自己回帰過程（AR(1)）」を選択．</li>
+<li>「プレス＝ウィンステン（Prais–Winsten）法」をチェック．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「OK」をクリック．</li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -638,10 +680,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./stat.html" class="pagination-link" aria-label="基本統計分析">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">基本統計分析</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="gretlの準備">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./multireg.html" class="pagination-link" aria-label="多変量線形モデルの推定">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">多変量線形モデルの推定</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
