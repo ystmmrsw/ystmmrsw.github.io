@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="村澤 康友">
-<meta name="dcterms.date" content="2025-09-07">
 
-<title>gretl入門</title>
+<title>7&nbsp; 制限従属変数モデルの推定 – gretl入門</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./setup.html" rel="next">
+<link href="./panel.html" rel="next">
+<link href="./multireg.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./limdep.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制限従属変数モデルの推定</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -129,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">はじめに</span></span></a>
   </div>
 </li>
@@ -165,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./limdep.html" class="sidebar-item-text sidebar-link">
+  <a href="./limdep.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制限従属変数モデルの推定</span></span></a>
   </div>
 </li>
@@ -191,7 +190,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a></li>
+  <li><a href="#値プロビットモデル" id="toc-値プロビットモデル" class="nav-link active" data-scroll-target="#値プロビットモデル"><span class="header-section-number">7.1</span> 2値プロビット・モデル</a></li>
+  <li><a href="#トービットモデル" id="toc-トービットモデル" class="nav-link" data-scroll-target="#トービットモデル"><span class="header-section-number">7.2</span> トービット・モデル</a></li>
   </ul>
 </nav>
     </div>
@@ -200,26 +200,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">gretl入門</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">制限従属変数モデルの推定</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>村澤 康友 </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -229,9 +217,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="はじめに" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> はじめに</h1>
-<p>統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．</p>
+<section id="値プロビットモデル" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="値プロビットモデル"><span class="header-section-number">7.1</span> 2値プロビット・モデル</h2>
+<p>プロビット・モデルのML推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「制限従属変数」→「プロビット」→「二項（Binary）」を選択．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「OK」をクリック．</li>
+</ol>
+</section>
+<section id="トービットモデル" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="トービットモデル"><span class="header-section-number">7.2</span> トービット・モデル</h2>
+<p>トービット・モデルのML推定は以下の手順で実行する．</p>
+<ol type="1">
+<li>メニューから「モデル」→「制限従属変数」→「トービット」を選択．</li>
+<li>「従属変数」を1つ選択．</li>
+<li>「説明変数（回帰変数）」を選択．</li>
+<li>「OK」をクリック．</li>
+</ol>
 
 
 </section>
@@ -638,10 +642,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./multireg.html" class="pagination-link" aria-label="多変量線形モデルの推定">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">多変量線形モデルの推定</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./setup.html" class="pagination-link" aria-label="gretlの準備">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">gretlの準備</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./panel.html" class="pagination-link" aria-label="パネル・データによる推定">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">パネル・データによる推定</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
