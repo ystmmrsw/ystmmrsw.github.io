@@ -1,0 +1,262 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "gretl入門",
+    "section": "",
+    "text": "1 はじめに\n統計・計量分析は表計算ソフトでも可能だが，計量経済分析ソフトを利用する方が便利である．本稿ではフリーの計量経済分析ソフトgretlで統計・計量分析を行う方法を解説する．",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>はじめに</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "2  gretlの準備",
+    "section": "",
+    "text": "2.1 gretlの入手\n大学の情報システムにはgretlをインストールしてあるが，必ずしも最新版ではない．下記のURLから最新版（Windows・Mac・Linux版がある）をダウンロードし，自分のPCにインストールするとよい．\nhttp://gretl.sourceforge.net/\nWindows版は「gretl for Windows」のページにある．",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>gretlの準備</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#インストール",
+    "href": "setup.html#インストール",
+    "title": "2  gretlの準備",
+    "section": "2.2 インストール",
+    "text": "2.2 インストール\n\n2.2.1 自分のPCにインストールする場合\nself-installer（32ビットか64ビット）のlatest releaseをクリック．後は「OK」をクリックしていけばよい．\n\n\n2.2.2 インストールせずに単体で使う場合\nzip archiveのlatest releaseをクリックし，自分のフォルダやUSBメモリに保存して解凍（右クリックして「すべて展開」）．",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>gretlの準備</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#起動",
+    "href": "setup.html#起動",
+    "title": "2  gretlの準備",
+    "section": "2.3 起動",
+    "text": "2.3 起動\nデスクトップまたはインストールした場所のgretlのアイコン（gretl.exe）をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>gretlの準備</span>"
+    ]
+  },
+  {
+    "objectID": "setup.html#言語の設定",
+    "href": "setup.html#言語の設定",
+    "title": "2  gretlの準備",
+    "section": "2.4 言語の設定",
+    "text": "2.4 言語の設定\ngretlのメニューは日本語化されている．出力が文字化けする場合は日本語フォントを以下の手順で設定する．\n\nメニューの「ツール」→「設定」→「等幅フォント」を選択．\n「フォント名」で「MSゴシック」を選択．\n「OK」をクリックし，gretlを一旦閉じて再起動．\n\nただし日本語フォントだとエラーが出やすくなる．その場合は以下の手順で英語版に戻す．\n\nメニューの「ツール」→「設定」→「一般」を選択．\n「言語設定」で「English」を選択し，「適用」をクリック．\n「OK」をクリックし，gretlを一旦閉じて再起動．\n\nWindows版で半角英数字の入力に不具合が発生する場合はgretlを再起動する．不具合が解消しない場合はテキストエディタで入力した文字をコピペする．",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>gretlの準備</span>"
+    ]
+  },
+  {
+    "objectID": "prepare.html",
+    "href": "prepare.html",
+    "title": "3  分析の準備",
+    "section": "",
+    "text": "3.1 データの準備\nメニューの「ファイル」→「データを開く」→「サンプル・ファイル」以下にサンプル・データが用意されている．自分で用意したデータを分析する場合は，以下の要領でデータをgretlに読み込んで保存する．",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>分析の準備</span>"
+    ]
+  },
+  {
+    "objectID": "prepare.html#データの準備",
+    "href": "prepare.html#データの準備",
+    "title": "3  分析の準備",
+    "section": "",
+    "text": "データの整理には表計算ソフト（Excel等）が便利である．各行が個体または観測時点，各列が変数を表す行列にデータを整理し（1行目は変数名），適当なファイル名（半角英数字）を付けて保存する．作業フォルダを用意し，そこに保存するとよい．\ngretlのメニューから「ファイル」→「データを開く」→「ユーザー・ファイル」を選択し，データ形式を選んでデータ・ファイルを開く．幾つかの質問に答えるとデータが読み込まれる．\nデータはgretlのgdt形式で保存しておくのが便利である．メニューから「ファイル」→「データを保存」を選択して保存する．gdt形式のデータを開くには，メニューから「ファイル」→「データを開く」→「ユーザー・ファイル」を選択する．",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>分析の準備</span>"
+    ]
+  },
+  {
+    "objectID": "prepare.html#データの追加",
+    "href": "prepare.html#データの追加",
+    "title": "3  分析の準備",
+    "section": "3.2 データの追加",
+    "text": "3.2 データの追加\n複数のファイルに分割されたデータは，以下の手順で1つのまとめる．\n\n1つ目のデータ・ファイルを前項の手順で開く．\ngretlのメニューから「ファイル」→「データを追加する」を選択し，データ形式を選んで2つ目のデータ・ファイルを開く．通常は「単純な追加」でデータが読み込まれる．\n3つ目以降も同様．",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>分析の準備</span>"
+    ]
+  },
+  {
+    "objectID": "prepare.html#変数の作成",
+    "href": "prepare.html#変数の作成",
+    "title": "3  分析の準備",
+    "section": "3.3 変数の作成",
+    "text": "3.3 変数の作成\ngretlでデータを加工する方法は2つある．\n\nメニューの「追加」以下で簡単な変換（対数・2乗・標準化）や変数の作成（疑似乱数・各種ダミー）ができる．ただしダミー変数は離散データからしか作れないので，「変数」→「属性を編集」で「この変数を離散変数として扱う」にチェックを入れておく．時系列データの変換（ラグ・階差・指数化など）やタイム・トレンドの作成は「追加」→「Time」以下で行う．\n複雑な変換はメニューから「追加」→「新規変数の定義」を選択し，新しい変数を式で定義する．\n\nまた「変数」→「欠損値コードを設定」で欠損値コードを入力すると欠損値が空欄となる．",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>分析の準備</span>"
+    ]
+  },
+  {
+    "objectID": "prepare.html#スクリプトの実行",
+    "href": "prepare.html#スクリプトの実行",
+    "title": "3  分析の準備",
+    "section": "3.4 スクリプトの実行",
+    "text": "3.4 スクリプトの実行\nマウスで操作できるのがgretlの長所だが，単純なマウス操作の繰り返しは面倒である．マウス操作をスクリプト・ファイルとして保存すれば，簡単に再実行できる．\n\n「ツール」→「コマンド・ログ」でマウス操作の履歴が確認できる．右クリックして「スクリプト・エディタで開く」を選択し，「保存」のアイコンをクリックしてgretlスクリプトとして保存する（ファイル名に拡張子.inpを付ける）．\n「ファイル」→「スクリプト・ファイル」→「ユーザーファイル」で保存したスクリプトを開き，「実行」のアイコンをクリックして実行する．",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>分析の準備</span>"
+    ]
+  },
+  {
+    "objectID": "stat.html",
+    "href": "stat.html",
+    "title": "4  基本統計分析",
+    "section": "",
+    "text": "4.1 1変量データ\n人為的ミスを防ぐためにも必ず基本統計量やデータのプロットを確認する．メニューの「変数」以下で1変量データの簡単な分析ができる．",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>基本統計分析</span>"
+    ]
+  },
+  {
+    "objectID": "stat.html#変量データ",
+    "href": "stat.html#変量データ",
+    "title": "4  基本統計分析",
+    "section": "",
+    "text": "値を表示\n基本統計量\n正規性検定\n度数分布\n推定された密度プロット\n箱ひげ図\n正規Q–Qプロット\nジニ係数\nレンジ・平均グラフ\n時系列プロット\nコレログラム\nピリオドグラム\nフィルタ（時系列データの各種平滑化）\nハースト指数",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>基本統計分析</span>"
+    ]
+  },
+  {
+    "objectID": "stat.html#多変量データ",
+    "href": "stat.html#多変量データ",
+    "title": "4  基本統計分析",
+    "section": "4.2 多変量データ",
+    "text": "4.2 多変量データ\nメニューの「表示」以下で多変量データの簡単な分析ができる．\n\n変数のグラフ\nマルチ・グラフ\n基本統計量\n相関行列\nクロス集計\n主成分分析\nマハラノビス距離\n相互相関係数",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>基本統計分析</span>"
+    ]
+  },
+  {
+    "objectID": "unireg.html",
+    "href": "unireg.html",
+    "title": "5  1変量線形回帰モデルの推定",
+    "section": "",
+    "text": "5.1 古典的線形回帰モデル\n古典的線形回帰モデルのOLS推定は以下の手順で実行する．\n結果の画面でメニューから追加的な分析やグラフの表示ができる．",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>1変量線形回帰モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "unireg.html#古典的線形回帰モデル",
+    "href": "unireg.html#古典的線形回帰モデル",
+    "title": "5  1変量線形回帰モデルの推定",
+    "section": "",
+    "text": "メニューから「モデル」→「通常の最小二乗法」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「OK」をクリック．\n\n\n\n「検定」→「不均一分散」で不均一分散の存在を検定できる（Whiteの検定・Breusch–PaganのLM検定）．\n「検定」→「自己相関」で系列相関の存在を検定できる（Breusch–GodfreyのLM検定）．\n「グラフ」→「理論値・実績値プロット」→「対」で回帰直線が図示される．\n「分析」→「係数の信頼区間」で回帰係数の95％信頼区間が求まる．",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>1変量線形回帰モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "unireg.html#一般化線形回帰モデル",
+    "href": "unireg.html#一般化線形回帰モデル",
+    "title": "5  1変量線形回帰モデルの推定",
+    "section": "5.2 一般化線形回帰モデル",
+    "text": "5.2 一般化線形回帰モデル\n\n5.2.1 OLS\n一般化線形回帰モデルのOLS推定は以下の手順で実行する．\n\nメニューから「モデル」→「通常の最小二乗法」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「頑健標準誤差を使用する」をチェック．\n「OK」をクリック．\n\nこれで頑健（robust）な標準誤差が得られる．\n\n\n5.2.2 GLS（横断面データ）\n条件つき不均一分散をもつ線形回帰モデルのGLS推定は以下の手順で実行する．\n\nメニューから「モデル」→「その他の線形モデル」→「不均一分散を修正した推定」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「OK」をクリック．\n\n\n\n5.2.3 GLS（時系列データ）\n系列相関をもつ線形回帰モデルのGLS推定は以下の手順で実行する．\n\nメニューから「モデル」→「Univariate time series」→「自己回帰（AR）モデル（GLS）」→「1階の自己回帰過程（AR(1)）」を選択．\n「プレス＝ウィンステン（Prais–Winsten）法」をチェック．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>1変量線形回帰モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "multireg.html",
+    "href": "multireg.html",
+    "title": "6  多変量線形モデルの推定",
+    "section": "",
+    "text": "6.1 多変量線形回帰モデル\nSURモデルのGLS推定は以下の手順で実行する．\nただし\\(y_1,\\dots,y_m\\)は被説明変数，\\(x_1,\\dots,x_k\\)は説明変数．",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>多変量線形モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "multireg.html#多変量線形回帰モデル",
+    "href": "multireg.html#多変量線形回帰モデル",
+    "title": "6  多変量線形モデルの推定",
+    "section": "",
+    "text": "メニューから「モデル」→「同時方程式（連立方程式）」を選択．\n以下のようにSURモデルを記述する．\n\nequation y_1 const x_1 ... x_k\n...\nequation y_m const x_1 ... x_k\n\n\n「推定量」で「見かけ上無相関な回帰（sur）」を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>多変量線形モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "multireg.html#線形同時方程式モデル",
+    "href": "multireg.html#線形同時方程式モデル",
+    "title": "6  多変量線形モデルの推定",
+    "section": "6.2 線形同時方程式モデル",
+    "text": "6.2 線形同時方程式モデル\n線形同時方程式モデルの各式の2SLS推定は以下の手順で実行する．\n\nメニューから「モデル」→「操作変数法」→「2段階最小二乗法」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「操作変数」を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>多変量線形モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "limdep.html",
+    "href": "limdep.html",
+    "title": "7  制限従属変数モデルの推定",
+    "section": "",
+    "text": "7.1 2値プロビット・モデル\nプロビット・モデルのML推定は以下の手順で実行する．",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制限従属変数モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "limdep.html#値プロビットモデル",
+    "href": "limdep.html#値プロビットモデル",
+    "title": "7  制限従属変数モデルの推定",
+    "section": "",
+    "text": "メニューから「モデル」→「制限従属変数」→「プロビット」→「二項（Binary）」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制限従属変数モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "limdep.html#トービットモデル",
+    "href": "limdep.html#トービットモデル",
+    "title": "7  制限従属変数モデルの推定",
+    "section": "7.2 トービット・モデル",
+    "text": "7.2 トービット・モデル\nトービット・モデルのML推定は以下の手順で実行する．\n\nメニューから「モデル」→「制限従属変数」→「トービット」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>制限従属変数モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "panel.html",
+    "href": "panel.html",
+    "title": "8  パネル・データによる推定",
+    "section": "",
+    "text": "パネル・データによる線形回帰モデルの推定は以下の手順で実行する．\n\nメニューから「モデル」→「パネル」→「固定効果あるいは変量効果」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」を選択．\n「固定効果」か「変量効果（ランダム効果）」をチェック．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>パネル・データによる推定</span>"
+    ]
+  },
+  {
+    "objectID": "tsmodel.html",
+    "href": "tsmodel.html",
+    "title": "9  時系列モデルの推定",
+    "section": "",
+    "text": "9.1 ARIMAモデル\nARIMAモデルのML推定は以下の手順で実行する．",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>時系列モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "tsmodel.html#arimaモデル",
+    "href": "tsmodel.html#arimaモデル",
+    "title": "9  時系列モデルの推定",
+    "section": "",
+    "text": "メニューから「モデル」→「一変量時系列」→「ARIMA」を選択．\n「従属変数」を1つ選択．\n「説明変数（回帰変数）」は選択しない．\nAR次数，和分次数，MA次数を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>時系列モデルの推定</span>"
+    ]
+  },
+  {
+    "objectID": "tsmodel.html#varモデル",
+    "href": "tsmodel.html#varモデル",
+    "title": "9  時系列モデルの推定",
+    "section": "9.2 VARモデル",
+    "text": "9.2 VARモデル\nVARモデルのOLS推定は以下の手順で実行する．\n\nメニューから「モデル」→「多変量時系列」→「ベクトル自己回帰モデル（VAR）」を選択．\n「内生変数」を選択．\n「外生変数」は選択しない．\nラグ次数を選択．\n「OK」をクリック．",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>時系列モデルの推定</span>"
+    ]
+  }
+]
